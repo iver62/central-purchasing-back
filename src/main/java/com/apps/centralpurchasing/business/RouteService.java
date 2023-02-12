@@ -1,4 +1,4 @@
-package com.apps.centralpurchasing.service;
+package com.apps.centralpurchasing.business;
 
 import org.springframework.stereotype.Service;
 

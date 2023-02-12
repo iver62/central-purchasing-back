@@ -6,10 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -25,14 +22,21 @@ public class Driver implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String lastname;
+    @Column(nullable = false)
     private String firstname;
     private LocalDate birthDate;
+    @Column(nullable = false)
     private LocalDate recruitmentDate;
+    @Column(nullable = false)
     private String phoneNumber;
     @Email
     private String email;
-    private String address;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_address", nullable = false)
+    private Address address;
+    private String description;
 
     @Override
     public boolean equals(Object o) {

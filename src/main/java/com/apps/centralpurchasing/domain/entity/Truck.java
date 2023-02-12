@@ -1,12 +1,12 @@
 package com.apps.centralpurchasing.domain.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -21,9 +21,13 @@ public class Truck implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private LocalDate purchaseDate;
+    @Column(nullable = false, unique = true)
     private String numberPlate;
+    @Column(nullable = false)
     private Integer capacity;
+    private String description;
 
     @Override
     public boolean equals(Object o) {

@@ -1,4 +1,4 @@
-package com.apps.centralpurchasing.controller;
+package com.apps.centralpurchasing.service;
 
 import com.apps.centralpurchasing.domain.Geolocation;
 import org.springframework.http.codec.ServerSentEvent;
@@ -6,20 +6,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.xml.sax.SAXException;
 import reactor.core.publisher.Flux;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import java.io.File;
-import java.io.IOException;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "route")
+@RequestMapping("route")
 public class RouteController {
 
     @CrossOrigin(origins = "http://localhost:4200")

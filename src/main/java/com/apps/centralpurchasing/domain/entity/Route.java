@@ -18,7 +18,7 @@ import java.util.Objects;
 public class Route implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private LocalDateTime departure;
     private LocalDateTime arrival;
@@ -30,6 +30,9 @@ public class Route implements Serializable {
     private Truck truck;
     @ManyToOne
     private Driver driver;
+    @ManyToOne
+    private Supplier supplier;
+    private String description;
 
     @Override
     public boolean equals(Object o) {
